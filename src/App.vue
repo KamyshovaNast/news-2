@@ -8,15 +8,15 @@
       <v-app-bar-nav-icon></v-app-bar-nav-icon>
       
       <v-spacer></v-spacer>
-      <v-btn elevation="2" class="new" v-on:click="getNewsRu">Новости</v-btn>
+      <v-btn elevation="2" class="new" v-on:click="getNewsRu"><router-link to="/ru">Новости</router-link></v-btn>
       <v-spacer></v-spacer>
-      <v-btn elevation="2" class="new" v-on:click="getNewsGb">News (GB)</v-btn>
+      <v-btn elevation="2" class="new" v-on:click="getNewsGb"><router-link to="/gb">News (GB)</router-link></v-btn>
       <v-spacer></v-spacer>
-      <v-btn elevation="2" class="new" v-on:click="getNewsUs">News (USA)</v-btn>
+      <v-btn elevation="2" class="new" v-on:click="getNewsUs"><router-link to="/usa">News (USA)</router-link></v-btn>
       <v-spacer></v-spacer>
-      <v-btn elevation="2" class="new" v-on:click="getNewsGe">Die Nachrichten</v-btn>
+      <v-btn elevation="2" class="new" v-on:click="getNewsGe"><router-link to="/de">Die Nachrichten</router-link></v-btn>
       <v-spacer></v-spacer>
-      <v-btn elevation="2" class="new" v-on:click="getNewsFr">Nouvelles</v-btn>
+      <v-btn elevation="2" class="new" v-on:click="getNewsFr"><router-link to="/fr">Nouvelles</router-link></v-btn>
       
       <v-spacer></v-spacer>
 
@@ -24,23 +24,7 @@
         <v-icon>mdi-dots-vertical</v-icon>
       </v-btn>
     </v-app-bar>
-
-    <v-main class="light-green lighten-5">
-      <v-container>
-        <v-row>
-          <v-col v-for="i in news"
-            :key="i"
-            cols="4">
-            <v-card>
-                <v-card-title>{{i.title}}</v-card-title>
-                <v-card-text>{{i.description}}</v-card-text>
-                <img v-bind:src="i.urlToImage">
-                <v-card-actions><a v-bind:href="i.url">Источник</a></v-card-actions>
-            </v-card>
-          </v-col>
-        </v-row>
-      </v-container>
-    </v-main>
+    <router-view/>
   </v-app>
 </template>
 
@@ -99,5 +83,8 @@
         height: 100px;
         width: 200px;
         background-size: contain;
+    }
+    router-link {
+        text-decoration: none;
     }
 </style>
