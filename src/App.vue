@@ -84,7 +84,8 @@
         width: 200px;
         background-size: contain;
     }
-    router-link {
+    a {
         text-decoration: none;
+        padding: 0;
     }
 </style>
